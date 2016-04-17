@@ -36,3 +36,6 @@ The Procfile in the root makes it easy to deploy the application to the  Heroku 
 
 Follow the instructions in the documentation: [link] (https://devcenter.heroku.com/articles/deploying-java).
 
+After deploying the application to Heroku you add http://\<heroku_address\>/rssrerouter/rss to the Download Station RSS
+feed list.
+
