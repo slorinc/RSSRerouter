@@ -58,7 +58,7 @@ public class ConnectorService {
             downloadRSSContent = customRestTemplate
                     .exchange(rssUrl, HttpMethod.GET, entity, String.class).getBody();
             Instant after = Instant.now();
-            LOG.debug("Request to {} took {} ", new Object[]{rssUrl, Duration.between(before, after)});
+            LOG.info("Request to {} took {} ms.", new Object[]{rssUrl, Duration.between(before, after).toMillis()});
         } catch (HttpStatusCodeException ex) {
             LOG.error("HTTP Error", ex);
         }
@@ -86,7 +86,7 @@ public class ConnectorService {
             responseEntity = customRestTemplate
                     .exchange(rssDownloadURL + id, HttpMethod.GET, entity, byte[].class);
             Instant after = Instant.now();
-            LOG.debug("Request to {} took {} ", new Object[]{rssDownloadURL + id, Duration.between(before, after)});
+            LOG.info("Request to {} took {} ms.", new Object[]{rssDownloadURL + id, Duration.between(before, after).toMillis()});
         } catch (HttpStatusCodeException ex) {
             LOG.error("HTTP Error", ex);
             return null;
